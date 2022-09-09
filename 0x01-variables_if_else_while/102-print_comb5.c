@@ -1,50 +1,31 @@
 #include <stdio.h>
-/* more headers goes there */
-/* betty style doc for function main goes there */
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
+*main - Prints all combinations of two two digits with,
+* and space followed by new line
+*
+*Return: returns 0
+*/
 int main(void)
 {
-	int p = 48, q = 48, y = 48, x = 49;
+	int digit1, digit2;
 
-	while (p < 58)
+	for (digit1 = 0; digit1 <= 98; digit1++)
 	{
-		while (q < 58)
+		for (digit2 = digit1 + 1; digit2 <= 99; digit2++)
 		{
-			while (y < 58)
+			putchar((digit1 / 10) + '0');
+			putchar((digit1 % 10) + '0');
+			putchar(32);
+			putchar((digit2 / 10) + '0');
+			putchar((digit2 % 10) + '0');
+
+			if (digit1 / 10 != 9 || digit1 % 10 != 8)
 			{
-				while (x < 58)
-				{
-					putchar(p);
-					putchar(q);
-					putchar(' ');
-					putchar(y);
-					putchar(x);
-					if (!(p == 57 &&
-						q == 56 &&
-						y == 57 &&
-						x == 57))
-					{
-						putchar(',');
-						putchar(' ');
-					}
-					x++;
-				}
-				y++;
-				x = 48;
+				putchar(44);
+				putchar(32);
 			}
-			q++;
-			q = p;
-			x = q + 1;
 		}
-		p++;
-		q = 48;
-		y = p;
-		x = q+ 1;
 	}
-	putchar('\n');
+	putchar(10);
 	return (0);
 }
